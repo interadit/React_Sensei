@@ -1,0 +1,203 @@
+@import "../../assets/css/variable.less";
+@import "svg.less";
+
+@svgMobileHeight: 360px;
+
+body, html {
+    display: -webkit-flex;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+}
+
+#btnSignIn {
+    min-width: 140px;
+}
+
+.lp-login {
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto 480px;
+    background-color: #fff;
+    position: relative;
+}
+
+.lp-login-panel {
+    &[data-position="left"] {
+        grid-column: span 1;
+        position: relative;
+        z-index: 1;
+    }
+
+    &[data-position="right"] {
+        grid-column: span 1;
+        position: relative;
+        display: -webkit-flex;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
+        padding-bottom: 80px;
+    }
+}
+
+.lp-login-app-title {
+    margin: 40px 0 0 50px;
+    position: absolute  ;
+    width: 280px;
+    height: 70px;
+    z-index: 2;
+    background-size: cover;
+    background-position: center;
+    background-image: url('~assets/img/logo-app.svg');
+}
+
+.lp-login-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: hidden;
+    pointer-events: none;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    &-svg {
+        height: 100%;
+    }
+}
+
+.lp-login-welcome {
+    margin: 0;
+    color: lighten(@color-primary, 8%);
+    margin-bottom: 28px;
+
+    & > .tag {
+        color:@color-info;
+        display: block;
+        font-size: @font-size-lg;
+    }
+}
+
+.lp-login-form {
+    width: 100%;
+    max-width: 350px;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+}
+
+.lp-login-action {
+    display: -webkit-flex;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.lp-login-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: flex-end;
+    padding: 5px 15px;
+    color: @color-info;
+    font-size: @font-size;
+}
+
+@media (max-width: 1080px) {
+    .lp-login-panel[data-position="left"] {
+        background-color: @color-white;
+    }
+
+    .lp-login-panel[data-position="right"] {
+        background-color: #fff;
+    }
+
+    .lp-login-bg {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .lp-login {
+        grid-template-columns: 1fr;
+        grid-template-rows: @svgMobileHeight auto;
+        background: @color-white;
+    }
+
+    .lp-login-panel[data-position="left"] {
+        height: @svgMobileHeight;
+        background: @color-white;
+    }
+
+    .lp-login-panel[data-position="right"] {
+        padding: 0 50px;
+        background: @color-white;
+        align-items: flex-start;
+        padding-top: 0;
+        opacity: 0;
+        min-height: 300px;
+        -webkit-transition: opacity .5s ease-in-out 2s;
+        transition: opacity .5s ease-in-out 2s;
+        -webkit-animation-name: loginForm;
+        -webkit-animation-duration: .5s ;
+        -webkit-animation-timing-function: ease-in-out;
+        -webkit-animation-delay: 1.8s;
+        -webkit-animation-fill-mode: forwards;
+        animation-name: loginForm;
+        animation-duration: .5s ;
+        animation-timing-function: ease-in-out;
+        animation-delay: 1.8s;
+        animation-fill-mode: forwards;
+
+        &::before {
+            top: 30px !important;
+            left: auto !important;
+        }
+    }
+
+    .lp-login-app-title {
+        margin-top: 20px;
+        margin-left: 0;
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+    }
+
+    .lp-login-bg {
+        z-index: 1;
+        right: 0;
+    }
+
+    .lp-login-welcome {
+        font-size: @font-size;
+        line-height: @line-height;
+        margin-bottom: 20px;
+        color: @color-grey-a;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 40px;
+
+        & > .tag {
+            font-size: @font-size-md;
+            color: @color-grey;
+            margin-left: 8px;
+            display: inline;
+        }
+    }
+
+    .lp-login-action,
+    .lp-login-footer {
+        justify-content: center;
+    }
+}

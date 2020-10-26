@@ -1,0 +1,29 @@
+{
+  "name": "service",
+  "version": "1.0.0",
+  "description": "Template for service",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "keywords": [],
+  "author": {
+    "name": "Author's Name",
+    "email": "author@elnusa.co.id",
+    "url": "http://code.elnusa.co.id/author_name"
+  },
+  "contributors": [
+    {
+      "name": "name_1",
+      "email": "name_1@elnusa.co.id",
+      "url": "http://code.elnusa.co.id/name_1"
+    }
+  ],
+  "license": "ISC",
+  "dependencies": {
+    "@elpi/core": "latest"
+  },
+  "devDependencies": {
+    "jest": "^24.9.0"
+  }
+}
